@@ -169,7 +169,7 @@ namespace MegaMenu
 
 
         [Test]
-        public void ComunitySubmenu() //The same testing for others tech to the usa submenus
+        public void CommunitySubmenu() //The same testing for others tech to the usa submenus
         {
             driver = new ChromeDriver("C:\\");
             driver.Manage().Window.Maximize();
@@ -184,6 +184,7 @@ namespace MegaMenu
             Thread.Sleep(600);
             actions.MoveToElement(childmenu).Click().Build().Perform();
             Thread.Sleep(500);
+            driver.Quit();
         }
         [Test]
         public void VerifyLogoRediraction()
