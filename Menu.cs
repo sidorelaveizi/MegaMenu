@@ -205,7 +205,7 @@ namespace MegaMenu
             driver.SwitchTo().Window(driver.WindowHandles.First());
         }
 
-        //test if "course menu is opened in new tab
+        //test if "course" menu is opened in new tab
         [Test]
         public void OpenNewTab()
         {
@@ -217,7 +217,7 @@ namespace MegaMenu
             driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(5);
         }
 
-        //test if "course menu is opened in new window"
+        //test if "course" menu is opened in new window
         [Test]
         public void OpenCourseMenuInNewWindow()
         {
