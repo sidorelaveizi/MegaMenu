@@ -2,7 +2,6 @@
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Interactions;
-using OpenQA.Selenium.Support.UI;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,8 +11,8 @@ namespace MegaMenu
 {
 
     /*
-     *All the menu are very volatile, i.e. they go away as soon as mouse pointer is moved. I used Actions
-     *to handle it.
+     *All the menus are tested, i.e. they go away as soon as mouse pointer is moved. I used Actions
+     *to handle it. After clicking on the menus, submenus list are displayed
      *
      */
     class Menu
@@ -29,7 +28,7 @@ namespace MegaMenu
             driver.Navigate().GoToUrl(url);
         }
 
-        //Job menu test
+        //Check job menu and secondary menu are displayed 
 
         [Test]
         public void JobOpeningSubmenu() //the same procedure for others submenus of the job menu
@@ -97,7 +96,6 @@ namespace MegaMenu
             actions.MoveToElement(subMenu).Build().Perform();
             Thread.Sleep(600);
             actions.MoveToElement(childmenu).Click().Build().Perform();
-
             Thread.Sleep(500);
         }
 
@@ -258,23 +256,5 @@ namespace MegaMenu
             }
         }
 
-
-        [Test]
-        public void VerifyDropdownList()
-        {
-            driver = new ChromeDriver("C:\\");
-            driver.Manage().Window.Maximize();
-            driver.Navigate().GoToUrl(url);
-            IWebElement element = driver
-            .FindElement(By.CssSelector(".dropdown-toggle.tb-megamenu-no-link"));
-            SelectElement selectElement = new SelectElement(element);
-            IList<IWebElement> elements = selectElement.Options;
-            Console.WriteLine(elements.Count());
-            foreach (var item in elements)
-            {
-                Console.WriteLine(item.Text);
-            }
-            driver.Quit();
-        }
     }
 }
